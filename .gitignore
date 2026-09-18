@@ -1,0 +1,8 @@
+# 私人照片，不提交到公开仓库
+assets/qingqing-photo.jpg
+
+# 本地运行文件
+*.log
+server.pid
+.DS_Store
+Thumbs.db

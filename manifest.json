@@ -1,0 +1,20 @@
+{
+  "name": "晴晴的猫咪小账本",
+  "short_name": "晴晴账本",
+  "description": "给戴晴晴的专属猫咪记账本，支持收入、支出、删除、CSV 导入和离线保存。",
+  "start_url": "./?v=9",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fff3fa",
+  "theme_color": "#f05f9b",
+  "lang": "zh-CN",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

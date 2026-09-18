@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff8cba"/>
+      <stop offset="1" stop-color="#8b73d6"/>
+    </linearGradient>
+    <linearGradient id="face" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#fff4fa"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <path d="M126 183 L154 92 L218 158 Z" fill="url(#face)" stroke="#ef5890" stroke-width="14" stroke-linejoin="round"/>
+  <path d="M294 158 L358 92 L386 183 Z" fill="url(#face)" stroke="#ef5890" stroke-width="14" stroke-linejoin="round"/>
+  <ellipse cx="256" cy="268" rx="150" ry="130" fill="url(#face)" stroke="#ef5890" stroke-width="14"/>
+  <ellipse cx="205" cy="246" rx="15" ry="21" fill="#302b38"/>
+  <ellipse cx="307" cy="246" rx="15" ry="21" fill="#302b38"/>
+  <ellipse cx="174" cy="290" rx="25" ry="15" fill="#ffbfd0"/>
+  <ellipse cx="338" cy="290" rx="25" ry="15" fill="#ffbfd0"/>
+  <ellipse cx="256" cy="291" rx="18" ry="13" fill="#f4bd3a"/>
+  <path d="M142 282 L74 264 M142 308 L74 320 M370 282 L438 264 M370 308 L438 320" stroke="#897b86" stroke-width="9" stroke-linecap="round"/>
+  <g transform="translate(366 132)">
+    <ellipse cx="-24" cy="0" rx="34" ry="26" fill="#ef5890" transform="rotate(22)"/>
+    <ellipse cx="24" cy="0" rx="34" ry="26" fill="#ef5890" transform="rotate(-22)"/>
+    <circle cx="0" cy="2" r="19" fill="#bb3e6c"/>
+  </g>
+  <circle cx="256" cy="402" r="36" fill="#ef5890" stroke="#ffffff" stroke-width="8"/>
+  <text x="256" y="416" text-anchor="middle" font-family="Arial, sans-serif" font-size="46" font-weight="700" fill="#ffffff">Q</text>
+</svg>

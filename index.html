@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f273a4">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="晴晴小账本">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="stylesheet" href="styles.css?v=9">
+  <title>晴晴的猫咪小账本</title>
+</head>
+<body>
+  <div class="sparkle-layer" aria-hidden="true">
+    <span class="sparkle sparkle-one">✦</span>
+    <span class="sparkle sparkle-two">♡</span>
+    <span class="sparkle sparkle-three">✧</span>
+    <span class="sparkle sparkle-four">🐾</span>
+    <span class="sparkle sparkle-five">♡</span>
+  </div>
+
+  <div class="app-shell">
+    <header class="hero">
+      <div class="cat" aria-hidden="true">
+        <span class="ear ear-left"></span>
+        <span class="ear ear-right"></span>
+        <span class="face">
+          <span class="eye eye-left"></span>
+          <span class="eye eye-right"></span>
+          <span class="blush blush-left"></span>
+          <span class="blush blush-right"></span>
+          <span class="nose"></span>
+          <span class="whisker whisker-left-one"></span>
+          <span class="whisker whisker-left-two"></span>
+          <span class="whisker whisker-right-one"></span>
+          <span class="whisker whisker-right-two"></span>
+        </span>
+        <span class="bow"><span></span><span></span></span>
+      </div>
+      <div class="hero-copy">
+        <p class="eyebrow">💗 给戴晴晴的专属小礼物</p>
+        <h1>晴晴的猫咪小账本</h1>
+        <p class="subtitle">每一笔，都算进我们的小日子</p>
+        <p class="cute-bubble">晴晴专属 · 只属于你的记账本</p>
+          <button id="loveButton" class="love-button" type="button">💌 点我收一张小纸条</button>
+          <button id="settingsButton" class="love-button" type="button">⚙️ 晴晴的专属设置</button>
+      </div>
+      <span class="hero-sticker">Q</span>
+    </header>
+
+    <main>
+      <section class="summary-grid" aria-label="账目汇总">
+        <article class="summary-card income-card" data-icon="💖">
+          <span>收入</span>
+          <strong id="incomeValue">0.00</strong>
+        </article>
+        <article class="summary-card expense-card" data-icon="🛍️">
+          <span>支出</span>
+          <strong id="expenseValue">0.00</strong>
+        </article>
+        <article class="summary-card balance-card" data-icon="✨">
+          <span>结余</span>
+          <strong id="balanceValue">0.00</strong>
+        </article>
+      </section>
+
+      <section class="love-letter panel">
+        <div class="love-letter-icon">💌</div>
+        <div>
+          <p class="love-letter-title">写给晴晴</p>
+          <p class="love-letter-text">愿你的每一天都被温柔包围。我们一起把小日子记下来，也把未来慢慢攒起来。</p>
+          <p class="love-letter-sign">—— 爱你的我</p>
+        </div>
+      </section>
+
+      <section class="panel memory-card">
+        <div class="polaroid">
+          <span class="polaroid-tape">♡</span>
+          <div class="photo-frame">
+            <img id="memoryPhoto" src="assets/qingqing-photo.jpg" alt="晴晴的照片" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='icon.svg';">
+          </div>
+          <p class="polaroid-caption">晴晴 · 愿你每天都闪闪发光</p>
+        </div>
+        <div class="memory-copy">
+          <p class="memory-eyebrow">✨ 晴晴专属回忆</p>
+          <h2>把喜欢的人，也放进小日子里</h2>
+          <p>每一次记账，都是我们认真生活的证明。愿你看到这里的时候，能想起有人一直把你放在心上。</p>
+        </div>
+      </section>
+
+      <section class="panel couple-panel">
+        <div class="section-heading">
+          <h2>🌷 我们的日子</h2>
+          <button id="editSettingsButton" class="tiny-button" type="button">编辑</button>
+        </div>
+        <div class="couple-grid">
+          <article class="couple-card">
+            <span>在一起</span>
+            <strong id="daysTogether">--</strong>
+            <small>天</small>
+          </article>
+          <article class="couple-card">
+            <span>距离生日</span>
+            <strong id="daysBirthday">--</strong>
+            <small>天</small>
+          </article>
+          <article class="goal-card">
+            <div class="goal-head">
+              <span id="goalName">一起去看海</span>
+              <b id="goalPercent">0%</b>
+            </div>
+            <div class="progress-track"><i id="goalProgress"></i></div>
+            <p id="goalText">目标：0.00 · 已攒：0.00</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel form-panel">
+        <div class="section-heading">
+          <h2>🐱 记一笔</h2>
+          <span class="hint">手动添加</span>
+        </div>
+
+        <div class="segmented" role="group" aria-label="选择类型">
+          <button class="segment active" data-type="expense" type="button">🛍️ 支出</button>
+          <button class="segment" data-type="income" type="button">💖 收入</button>
+        </div>
+
+        <label class="field">
+          <span>🏷️ 分类</span>
+          <select id="categorySelect"></select>
+        </label>
+
+        <label class="field">
+          <span>💬 说明</span>
+          <input id="descriptionInput" type="text" maxlength="40" placeholder="例如：早餐、工资、买菜">
+        </label>
+
+        <label class="field">
+          <span>💰 金额</span>
+          <input id="amountInput" type="text" inputmode="decimal" placeholder="例如：12.50">
+        </label>
+
+        <button id="addButton" class="button primary-button" type="button">🎀 添加支出</button>
+        <p id="statusText" class="status" role="status"></p>
+      </section>
+
+      <section class="panel">
+        <div class="section-heading">
+          <h2>📒 所有记录</h2>
+          <span id="recordCount" class="hint">0 条</span>
+        </div>
+        <div class="record-tools">
+          <input id="searchInput" type="search" placeholder="🔍 搜索说明或分类">
+          <select id="typeFilter">
+            <option value="all">全部</option>
+            <option value="income">只看收入</option>
+            <option value="expense">只看支出</option>
+          </select>
+          <button id="reportButton" class="button secondary-button report-button" type="button">💌 本月情书</button>
+        </div>
+        <div id="recordList" class="record-list"></div>
+      </section>
+
+      <section class="panel tools-panel">
+        <div class="section-heading">
+          <h2>🪄 导入与识别</h2>
+          <span class="hint">无需联网</span>
+        </div>
+
+        <label class="button secondary-button file-button">
+          📥 导入微信 / 支付宝 CSV
+          <input id="csvInput" type="file" accept=".csv,text/csv,text/plain">
+        </label>
+
+        <textarea id="pasteInput" rows="4" placeholder="也可以粘贴付款文字，例如：&#10;微信支付 已支付 ¥12.50 给早餐店"></textarea>
+        <button id="pasteButton" class="button secondary-button" type="button">✨ 识别粘贴文字</button>
+
+        <div class="tool-row">
+          <button id="exportButton" class="button secondary-button" type="button">💾 导出 CSV</button>
+          <button id="clearButton" class="button danger-button" type="button">🧹 清空记录</button>
+        </div>
+
+        <p class="note">微信和支付宝账单可在各自 App 中导出，再从这里导入。iPhone 不允许网页直接读取其他 App 的通知或账单。</p>
+      </section>
+    </main>
+  </div>
+
+  <div id="settingsModal" class="modal-layer" aria-hidden="true">
+    <div class="modal-card settings-card" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+      <button class="modal-close" data-close="settingsModal" type="button">×</button>
+      <h3 id="settingsTitle">晴晴的专属设置</h3>
+      <label class="field"><span>她的昵称</span><input id="nicknameInput" type="text" maxlength="12" value="晴晴"></label>
+      <label class="field"><span>在一起的纪念日</span><input id="anniversaryInput" type="date"></label>
+      <label class="field"><span>她的生日</span><input id="birthdayInput" type="date"></label>
+      <label class="field"><span>我们的目标名称</span><input id="goalNameInput" type="text" maxlength="20" value="一起去看海"></label>
+      <label class="field"><span>目标金额</span><input id="goalTargetInput" type="text" inputmode="decimal" value="5000"></label>
+      <label class="field"><span>晴晴的照片（只保存在本机）</span><input id="photoInput" type="file" accept="image/*"></label>
+      <button id="removePhotoButton" class="button secondary-button" type="button">移除本机照片</button>
+      <div class="modal-actions">
+        <button id="saveSettingsButton" class="button primary-button" type="button">保存设置</button>
+        <button id="pinSettingButton" class="button secondary-button" type="button">设置 / 修改密码</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="editModal" class="modal-layer" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="editTitle">
+      <button class="modal-close" data-close="editModal" type="button">×</button>
+      <h3 id="editTitle">编辑记录</h3>
+      <label class="field"><span>类型</span><select id="editType"><option value="expense">支出</option><option value="income">收入</option></select></label>
+      <label class="field"><span>分类</span><select id="editCategory"></select></label>
+      <label class="field"><span>说明</span><input id="editDescription" type="text" maxlength="40"></label>
+      <label class="field"><span>金额</span><input id="editAmount" type="text" inputmode="decimal"></label>
+      <div class="modal-actions">
+        <button id="saveEditButton" class="button primary-button" type="button">保存修改</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="reportModal" class="modal-layer" aria-hidden="true">
+    <div class="modal-card report-card" role="dialog" aria-modal="true" aria-labelledby="reportTitle">
+      <button class="modal-close" data-close="reportModal" type="button">×</button>
+      <div class="report-icon">💌</div>
+      <h3 id="reportTitle">本月记账情书</h3>
+      <div id="reportStats" class="report-stats"></div>
+      <p id="reportMessage" class="report-message"></p>
+    </div>
+  </div>
+
+  <div id="pinModal" class="modal-layer pin-layer" aria-hidden="true">
+    <div class="modal-card pin-card" role="dialog" aria-modal="true" aria-labelledby="pinTitle">
+      <div class="lock-cat">🐱</div>
+      <h3 id="pinTitle">设置专属密码</h3>
+      <p id="pinHint" class="pin-hint">设置 4 到 6 位数字密码</p>
+      <input id="pinInput" class="pin-input" type="password" inputmode="numeric" maxlength="6" placeholder="请输入密码">
+      <input id="pinConfirm" class="pin-input" type="password" inputmode="numeric" maxlength="6" placeholder="请再输入一次">
+      <p id="pinError" class="pin-error"></p>
+      <div class="modal-actions">
+        <button id="pinSubmitButton" class="button primary-button" type="button">确认</button>
+        <button id="pinCancelButton" class="button secondary-button" type="button">取消</button>
+        <button id="removePinButton" class="button danger-button" type="button">移除密码</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="loveModal" class="love-modal" aria-hidden="true">
+    <div class="love-card" role="dialog" aria-modal="true" aria-labelledby="loveTitle">
+      <button id="loveClose" class="love-close" type="button" aria-label="关闭">×</button>
+      <div class="love-card-icon">💌</div>
+      <h3 id="loveTitle">给晴晴的小纸条</h3>
+      <p id="loveMessage">晴晴，今天也要开心呀。</p>
+      <p class="love-card-sign">愿每一笔小日子，都有我们。</p>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js?v=9"></script>
+  <script src="love-features.js?v=9"></script>
+</body>
+</html>
