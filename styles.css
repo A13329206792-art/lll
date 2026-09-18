@@ -489,3 +489,31 @@ textarea { resize: vertical; min-height: 96px; margin-bottom: 10px; }
   .couple-grid { grid-template-columns: 1fr 1fr; }
   .goal-card { grid-column: 1 / -1; }
 }
+/* 晴晴 Q 版形象 */
+.avatar-note {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-top: 14px;
+  padding: 9px 11px;
+  border: 2px solid rgba(255,255,255,.94);
+  border-radius: 18px;
+  background: rgba(255,255,255,.7);
+  box-shadow: 0 7px 17px rgba(181,83,135,.09);
+}
+.avatar-note img {
+  width: 62px;
+  height: 62px;
+  flex: 0 0 62px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  background: #ffe4f0;
+  box-shadow: 0 6px 15px rgba(181,83,135,.15);
+  animation: bob 3.2s ease-in-out infinite;
+}
+.avatar-note strong { display: block; color: var(--pink-dark); font-size: 13px; }
+.avatar-note span { display: block; margin-top: 3px; color: var(--muted); font-size: 11px; line-height: 1.45; }
+
+@media (max-width: 520px) {
+  .avatar-note { justify-content: center; text-align: left; }
+}
