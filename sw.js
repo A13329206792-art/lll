@@ -1,5 +1,5 @@
-const CACHE_NAME = "pink-cat-ledger-v10";
-const ASSETS = ["./", "./index.html", "./styles.css", "./styles.css?v=10", "./app.js", "./app.js?v=10", "./love-features.js", "./love-features.js?v=10", "./manifest.json", "./icon.svg", "./qingqing-avatar.svg", "./assets/qingqing-photo.jpg"];
+const CACHE_NAME = "pink-cat-ledger-v12";
+const ASSETS = ["./", "./index.html", "./styles.css", "./styles.css?v=12", "./app.js", "./app.js?v=12", "./love-features.js", "./sync.js", "./sync.js?v=12", "./love-features.js?v=12", "./manifest.json", "./icon.svg", "./qingqing-avatar.svg"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS)));
