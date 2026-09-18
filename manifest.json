@@ -2,7 +2,7 @@
   "name": "晴晴的猫咪小账本",
   "short_name": "晴晴账本",
   "description": "给戴晴晴的专属猫咪记账本，支持收入、支出、删除、CSV 导入和离线保存。",
-  "start_url": "./?v=10",
+  "start_url": "./?v=12",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
