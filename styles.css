@@ -517,3 +517,16 @@ textarea { resize: vertical; min-height: 96px; margin-bottom: 10px; }
 @media (max-width: 520px) {
   .avatar-note { justify-content: center; text-align: left; }
 }
+/* 情侣云同步 */
+.sync-panel { grid-column: 1 / -1; }
+.sync-description { margin: -4px 0 15px; color: var(--muted); font-size: 13px; line-height: 1.7; }
+.sync-setup { display: grid; gap: 10px; margin-bottom: 12px; }
+.sync-buttons { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 9px; }
+.sync-buttons .button { padding: 12px 10px; font-size: 13px; }
+.sync-panel .note { margin-top: 12px; }
+@media (max-width: 650px) {
+  .sync-buttons { grid-template-columns: 1fr; }
+}
+.sync-qr-wrap { display: grid; place-items: center; margin: 12px auto; padding: 10px; border-radius: 20px; background: #fff; box-shadow: 0 10px 24px rgba(181,83,135,.12); }
+.sync-qr-wrap canvas { display: block; max-width: 100%; height: auto; }
+#syncPairLink { font-size: 12px; word-break: break-all; }
