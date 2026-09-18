@@ -9,7 +9,7 @@
   <meta name="apple-mobile-web-app-title" content="晴晴小账本">
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="icon.svg">
-  <link rel="stylesheet" href="styles.css?v=10">
+  <link rel="stylesheet" href="styles.css?v=12">
   <title>晴晴的猫咪小账本</title>
 </head>
 <body>
@@ -168,6 +168,35 @@
         <div id="recordList" class="record-list"></div>
       </section>
 
+      <section class="panel sync-panel">
+        <div class="section-heading">
+          <h2>☁️ 情侣云同步</h2>
+          <span id="syncStatus" class="hint">未连接</span>
+        </div>
+        <p class="sync-description">两台手机连接同一个 GitHub 私人数据仓库后，账本、纪念日、目标和照片会自动同步。</p>
+        <div id="syncSetup" class="sync-setup">
+          <label class="field"><span>GitHub 同步密钥</span><input id="syncTokenInput" type="password" placeholder="github_pat_..."></label>
+          <button id="saveTokenButton" class="button primary-button" type="button">保存并验证</button>
+        </div>
+        <div class="sync-buttons">
+          <button id="syncNowButton" class="button primary-button" type="button">立即同步</button>
+          <button id="pairButton" class="button secondary-button" type="button">生成手机配对链接</button>
+          <button id="disconnectSyncButton" class="button danger-button" type="button">断开同步</button>
+        </div>
+        <p class="note">同步密钥只保存在两台手机里，不会写进公开网页。密钥只授权访问私人仓库 <b>lll-data</b>。</p>
+      </section>
+
+      <div id="syncPairModal" class="modal-layer" aria-hidden="true">
+        <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="syncPairTitle">
+          <button class="modal-close" data-close="syncPairModal" type="button">×</button>
+          <h3 id="syncPairTitle">手机配对链接</h3>
+          <p class="pin-hint">把这行链接发送到晴晴的手机并打开，即可自动完成同步配置。</p>
+          <div class="sync-qr-wrap"><canvas id="syncQrCanvas" width="240" height="240"></canvas></div>
+          <textarea id="syncPairLink" rows="5" readonly></textarea>
+          <button id="copyPairLinkButton" class="button primary-button" type="button">复制配对链接</button>
+        </div>
+      </div>
+
       <section class="panel tools-panel">
         <div class="section-heading">
           <h2>🪄 导入与识别</h2>
@@ -261,7 +290,9 @@
   </div>
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <script src="app.js?v=10"></script>
-  <script src="love-features.js?v=10"></script>
+  <script src="app.js?v=12"></script>
+  <script src="love-features.js?v=12"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.4/build/qrcode.min.js"></script>
+  <script src="sync.js?v=12"></script>
 </body>
 </html>
